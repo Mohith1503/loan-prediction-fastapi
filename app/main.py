@@ -9,10 +9,10 @@ app= FastAPI()
 
 @app.post("/predict")
 def predict(data:InputData):
-    result = make_prediction(data)
-   
+    result, prob = make_prediction(data)
+
     return {
-        "loan_status": "Approved" if result == 1 else "Rejected"
-         
-    }
+    "loan_status": "Approved" if result == 0 else "Rejected",
+    "probability": prob
+}
     
