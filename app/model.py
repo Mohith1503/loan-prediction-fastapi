@@ -1,3 +1,3 @@
 import pickle
 
-model=pickle.load(open('model1.pkl',"rb"))
+model=pickle.load(open('model.pkl',"rb"))
