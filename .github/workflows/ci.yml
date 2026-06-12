@@ -18,3 +18,5 @@ jobs:
         run: python --version
       - name: Install dependencies
         run: pip install -r requirements.txt 
+      - name: application validation
+        run: python -c "from app.main import app"
