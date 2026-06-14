@@ -21,4 +21,4 @@ jobs:
       - name: application validation
         run: python -c "from app.main import app"
       - name: Build docker image
-        run:docker build -t predict-loan .
+        run: docker build -t predict-loan .
