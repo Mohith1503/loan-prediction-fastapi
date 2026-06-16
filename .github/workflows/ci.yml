@@ -30,7 +30,7 @@ jobs:
       - name: push docker image
         run: docker push mohith1503/predict-loan:latest
       - name: deploy to ec2
-        uses: applebiy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{secrets.EC2_HOST}}
           username: ${{secrets.EC2_USERNAME}}
