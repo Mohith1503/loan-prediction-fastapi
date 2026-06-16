@@ -29,3 +29,14 @@ jobs:
         run: docker build -t mohith1503/predict-loan:latest .
       - name: push docker image
         run: docker push mohith1503/predict-loan:latest
+      - name: deploy to ec2
+        uses: applebiy/ssh-action@v1.0.3
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_KEY}}
+          script: |
+            docker pull mohith1503/predict-loan:latest
+            docker stop predict-loan || true
+            docker rm predict-loan ||true
+            docker run -d --name predict-loan -p 8000:8000 mohith1503/predict-loan:latest
